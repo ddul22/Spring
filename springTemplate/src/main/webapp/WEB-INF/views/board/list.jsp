@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<H3>게시글목록</H3>
+<a href="register">등록</a>
 	<tbody>
 		<table class="table table-spriped table-bordered table-hober">
 			<thead>
@@ -24,8 +26,9 @@
 			<c:forEach items="${list }" var="board">
 			
 			<tr>
-				<td><c:out value="${board.bno }"/></td>
-					<td><c:out value="${board.title }"/></td>
+				<td>${board.bno }</td>
+				<td><a href='get?bno=${board.bno }'>${board.title }</a></td>
+					<td>${board.title }</td>
 					<td><c:out value="${board.writer }"/></td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate }"/></td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }"/></td>
