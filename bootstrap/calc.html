@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>calc.html</title>
+</head>
+<body>
+  <input id="num1">
+  <input id="num2">
+  <button type="button" id="btn">계산</button>
+  <div id="result"></div>
+  <script>
+    //버튼 클릭 이벤트 지정
+     //클릭하면 num1과 num2를 더해서
+    document.querySelector('#btn').addEventListener('click',function(e){
+      result.innerHTML = Number(document.querySelector('#num1').value) + Number(document.querySelector('#num2').value)
+    })
+   
+  </script>
+</body>
+</html>
