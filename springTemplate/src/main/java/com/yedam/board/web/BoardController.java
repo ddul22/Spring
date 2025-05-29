@@ -10,12 +10,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.yedam.board.service.BoardService;
 import com.yedam.board.service.BoardVO;
+import com.yedam.board.service.Criteria;
+import com.yedam.board.service.PageDTO;
 
 import lombok.RequiredArgsConstructor;
+
 /**
- * 작성일자    작성자    수정내용
- * 20250525  홍길동    최초작성
- * 20250535  홍길동    페이징   
+ * 작성일자 작성자 수정내용 20250525 홍길동 최초작성 20250535 홍길동 페이징
  * 
  */
 @Controller
@@ -24,59 +25,64 @@ import lombok.RequiredArgsConstructor;
 public class BoardController {
 
 	final BoardService boardService;
-	
+
 	/**
 	 * 게시글조회
+	 * 
 	 * @param model
 	 * @param board 검색조건
 	 * @return 목록페이지명
 	 */
 	@GetMapping("/list")
-	public String getMehodName(Model model, BoardVO board) {
-		model.addAttribute("list", boardService.getList());
-		return "board/list";
+	public void list(Criteria cri, Model model) {
+
+		model.addAttribute("list", boardService.getList(cri));
+		// paing 처리
+		long total = boardService.getTotal(cri);
+		model.addAttribute("pageMaker", new PageDTO(cri, total));
+
 	}
-	
-	//등록 페이지로 이동
-	@GetMapping("/register")
+
+	// 등록 페이지로 이동
+	@GetMapping("/register")  
 	public void register() {
 	}
-	
-	//등록 처리하고 목록으로 이동
+
+	// 등록 처리하고 목록으로 이동
 	@PostMapping("register")
-	public String register(BoardVO vo) {
+	public String register(BoardVO vo, RedirectAttributes rttr) {
 		boardService.insert(vo);
+		rttr.addFlashAttribute("result", vo.getBno());
 		return "redirect:list";
 	}
-	
-	//단건조회
+
+	// 단건조회
 	@GetMapping("get")
 	public String get(@RequestParam("bno") Long bno, Model model) {
 		model.addAttribute("board", boardService.read(bno));
 		return "board/get";
 	}
-	
-	//수정페이지로 이동
+
+	// 수정페이지로 이동
 	@GetMapping("/modify")
 	public void modify(@RequestParam("bno") Long bno, Model model) {
 		model.addAttribute("board", boardService.read(bno));
 	}
-	
-	//수정처리
+
+	// 수정처리
 	@PostMapping("modify")
 	public String modify(BoardVO board, RedirectAttributes rttr) {
 		boardService.update(board);
-		//return "redirect:list";
+		// return "redirect:list";
 		rttr.addAttribute("bno", board.getBno());
 		return "redirect:get";
 	}
-	
-	//삭제처리
+
+	// 삭제처리
 	@PostMapping("remove")
-	public String remove(@RequestParam("bno") Long bno){
+	public String remove(@RequestParam("bno") Long bno) {
 		boardService.delete(bno);
 		return "redirect:list";
 	}
-	
-	
+
 }
