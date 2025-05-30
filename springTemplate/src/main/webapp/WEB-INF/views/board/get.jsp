@@ -60,10 +60,45 @@
 
       </div>
       <!--  end panel-body -->
+<hr>
+<div class="mt-5"></div>
+<div>
+  <!-- 댓글 입력 폼 -->
+  <div class="mb-3">
+    <textarea id="btnReplyAdd"
+      class="form-control mb-2"
+      rows="3"
+      placeholder="댓글을 입력하세요..."
+    ></textarea>
+    <button id="txtReply" class="btn btn-primary">댓글 작성</button>
+  </div>
 
+  <hr />
+
+  <!-- 댓글 리스트 -->
+  <div class="reply mb-4">
+    <div class="d-flex justify-content-between">
+      <strong>user123</strong>
+      <small class="text-muted">2025-05-22</small>
+    </div>
+    <p class="mb-1">좋은 글이네요!</p>
+    <div>
+      <button class="btn btn-sm btn-outline-secondary">수정</button>
+      <button class="btn btn-sm btn-outline-danger">삭제</button>
+    </div>
+  </div>
+</div>
     </div>
     <!--  end panel-body -->
   </div>
   <!-- end panel -->
 </div>
 <!-- /.row -->
+<script src="/resources/js/get.js"></script>
+<script>
+	document.querySelector("#btnReplyAdd").addEventListener("click", ()=>{
+		const txtReply = documnet.querySelector('#txtReply').value;
+		const data = { reply, replyer:"홍길동"}
+		register(data)
+	})
+</script>
