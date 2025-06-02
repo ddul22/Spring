@@ -1,3 +1,7 @@
-D:\eGovFrameDev-4.3.0-64bit\workspace-egov\springTemplate\src\test\java\com\yedam\sample\AppTest.java
-D:\eGovFrameDev-4.3.0-64bit\workspace-egov\springTemplate\src\test\java\com\yedam\board\BoardMapperTest.java
-D:\eGovFrameDev-4.3.0-64bit\workspace-egov\springTemplate\src\test\java\com\yedam\sample\TimeMapperTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\sample\AppTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\sample\JacksonTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\sample\TimeMapperTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\board\BoardServiceTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\board\BoardMapperTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\board\ReplyMapperTest.java
+C:\Users\admin\git\Spring\springTemplate\src\test\java\com\yedam\board\controller\ReplyControllerTests.java
