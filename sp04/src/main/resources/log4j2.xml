@@ -13,6 +13,9 @@
 			<AppenderRef ref="Console" />
 		</Logger>
 
+		<Logger name="jdbc.connection" level="off" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
 		<Logger name="jdbc.sqltiming" level="info" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
@@ -26,10 +29,14 @@
 		<Logger name="jdbc.audit" level="warn" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
-
+		<Logger name="org.springframework.security" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
 		<Logger name="jdbc.resultset" level="warn" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
+		
+		
 		<Root level="info">
 			<AppenderRef ref="Console" />
 		</Root>
