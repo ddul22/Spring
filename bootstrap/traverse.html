@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table border="1">
+  <tr data-no="a01" data-name="TV" >
+    <td >1</td>
+    <td>2</td>
+    <td><button type="button" class="btn" data-no="a01">조회</button></td>
+  </tr>
+  <tr data-name="no">
+    <td>3</td>
+    <td>4</td>
+    <td><button type="button" class="btn">조회</button></td>
+  </tr>
+  <tr data-name="no">
+    <td>5</td>
+    <td>6</td>
+    <td><button type="button" class="btn">조회</button></td>
+  </tr>
+</table>
+<script>
+  //그룹이벤트(위임)
+  document.querySelector("table").addEventListener("click",()=>{
+    if(event.target.tagname == 'BUTTON') {
+      //if(evnet.target.classList.contains("btn")){
+    console.log(event.target.closest("tr").dataset.name)
+    }
+  })
+</script>
+</body>
+</html>
