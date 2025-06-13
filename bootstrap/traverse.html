@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </head>
 <body>
   <table border="1">
@@ -30,6 +31,22 @@
       //if(evnet.target.classList.contains("btn")){
     console.log(event.target.closest("tr").dataset.name)
     }
+  })
+
+  //2열만 배경색 지정
+  document.querySelectorAll('td:nth-child(2)').forEach(function(ele,idx){
+    ele.style.backgroundColor = 'yellow';
+  })
+  $('td:nth-child(2)').css('backgroundColor', 'red');
+  console.log($('td:nth-child(2)').css('backgroundColor'));
+
+  //
+  // document.querySelector(
+  // $('.btn').eq(0).closest("tr").children();
+  // $('.btn').eq(0);
+
+  $('td:nth-child(2)').each((idx, ele)=>{
+    console.log(ele.innerHTML);
   })
 </script>
 </body>
